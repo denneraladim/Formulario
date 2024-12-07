@@ -41,9 +41,9 @@ function Form() {
     setTimeout(() => {
       reset();
       setSuccessMessage('');
-    },3000);
+    },3000)
 
-  
+    
   };
 
   return (

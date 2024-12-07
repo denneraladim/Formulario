@@ -33,6 +33,9 @@ Essa aplicação foi desenvolvida utilizando React, TypeScript, CSS e  React Hoo
 7. Validação com Yup
 8. Criar o useState
 9. Criado a Mensagem de Sucesso
+10. Carrega dados do localStorage ao montar o componente
+11. Criar o useEffect
+12. Preenche o formulário com os dados salvos
 
 
 # Instalação do React Hook Form
