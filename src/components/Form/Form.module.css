@@ -44,3 +44,11 @@ span {
     color: red;
     margin-top: 5px;
 }
+
+.success {
+    color: green;          
+    font-size: 16px;        
+    margin-top: 10px;       
+    text-align: center;     
+    font-weight: bold;      
+  }

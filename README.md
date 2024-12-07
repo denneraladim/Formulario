@@ -31,6 +31,8 @@ Essa aplicação foi desenvolvida utilizando React, TypeScript, CSS e  React Hoo
 5. Criar Evento
 6. Criar a Validação do Formulário
 7. Validação com Yup
+8. Criar o useState
+9. Criado a Mensagem de Sucesso
 
 
 # Instalação do React Hook Form
