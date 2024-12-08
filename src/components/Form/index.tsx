@@ -1,7 +1,7 @@
 import styles from './Form.module.css';
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import FormLogo from '../../assets/form-logo.png';
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -31,16 +31,37 @@ function Form() {
   });
 
   const [successMessage, setSuccessMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false); 
+
+  // Recupera os dados salvos no localStorage ao carregar o componente
+  useEffect(() => {
+
+    const saveData = localStorage.getItem("formData");
+    if(saveData){
+      const parseData = JSON.parse(saveData)
+
+      // Preenche o formulário com os dados do localStorage
+      reset(parseData);
+    }
+  },[reset]);
 
   const onSubmit: SubmitHandler<FormInput> = async (userData) => {
+    setIsSubmitting(true); 
    
     console.log(userData);
+
+     // Salva os dados no localStorage
+    localStorage.setItem("formData", JSON.stringify(userData));
 
     setSuccessMessage('Cadastro realizado com sucesso!');
     
     setTimeout(() => {
       reset();
       setSuccessMessage('');
+      setIsSubmitting(false);
+
+      // Limpa os dados do localStorage
+      localStorage.removeItem("formData");
     },3000)
 
     
@@ -53,23 +74,28 @@ function Form() {
       <label htmlFor="name">
         Nome
         <input type='text' id="name" {...register("name")} />
-        <span>{errors.name?.message}</span>
+        {errors.name && <span className={styles.error}>{errors.name.message}</span>}
       </label>
 
       <label htmlFor="email">
         E-mail
-        <input type='text' id="email" {...register("email")} />
-        <span>{errors.email?.message}</span>
+        <input type='email' id="email" {...register("email")} />
+        {errors.email && <span className={styles.error}>{errors.email.message}</span>}
       </label>
 
       <label htmlFor="confirmEmail">
         Confirmar E-mail
-        <input type='text' id="confirmEmail" {...register("confirmEmail")} />
-        <span>{errors.confirmEmail?.message}</span>
+        <input type='email' id="confirmEmail" {...register("confirmEmail")} />
+        {errors.confirmEmail && <span className={styles.error}>{errors.confirmEmail.message}</span>}
       </label>
 
-      <button type='submit'>Cadastrar-se</button>
+      <button type='submit' disabled={isSubmitting}>
+      {isSubmitting ? 'Enviando...' : 'Cadastrar-se'}
+        </button>
+
       {successMessage && <p className={styles.success}>{successMessage}</p>}
+      
+
     </form>
   );
 }

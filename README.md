@@ -35,7 +35,8 @@ Essa aplicação foi desenvolvida utilizando React, TypeScript, CSS e  React Hoo
 9. Criado a Mensagem de Sucesso
 10. Carrega dados do localStorage ao montar o componente
 11. Criar o useEffect
-12. Preenche o formulário com os dados salvos
+12. Criar Estado de Carregamento
+
 
 
 # Instalação do React Hook Form
@@ -43,5 +44,14 @@ Essa aplicação foi desenvolvida utilizando React, TypeScript, CSS e  React Hoo
 
  # Instalação de Validação com Yup
     npm install @hookform/resolvers yup 
+
+
+ # LocalStorage
+
+ 1. Recuperar os dados salvos
+ 2. Preencher o formulário com os dados salvos
+ 3. Salvar os dados
+ 4. Limpar os dados
+  
 
 # Projeto em Andamento
