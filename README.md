@@ -36,7 +36,7 @@ Essa aplicação foi desenvolvida utilizando React, TypeScript, CSS e  React Hoo
 10. Carrega dados do localStorage ao montar o componente
 11. Criar o useEffect
 12. Criar Estado de Carregamento
-13. Criar Teste Unitário
+
 
 
 
@@ -54,9 +54,5 @@ Essa aplicação foi desenvolvida utilizando React, TypeScript, CSS e  React Hoo
  3. Salvar os dados
  4. Limpar os dados
 
-
- # Instalação do Teste Unitário Vitest
-     npm install -D vitest
-  
-
-# Projeto em Andamento
+ 
+# Projeto Concluido
